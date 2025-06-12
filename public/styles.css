@@ -1,0 +1,191 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+body {
+  background: #141a16;
+  color: #d0e7c6;
+  font-family: 'Share Tech Mono', monospace;
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  background: rgba(255, 140, 40, 0.75); /* Mer gjennomsiktig oransje */
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.1rem 2.2rem;
+  box-shadow: 0 2px 12px rgba(255,140,40,0.10);
+  backdrop-filter: blur(2px);
+}
+.header__logo {
+  font-size: 2.1rem;
+  font-family: 'Segoe UI', 'Arial Black', Arial, sans-serif;
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: #fff;
+  text-shadow: 0 0 10px #ff8c28cc;
+  transition: text-shadow 0.25s, color 0.2s;
+  text-decoration: none;
+}
+.header__logo--glow:hover, .header__logo--glow:focus {
+  text-shadow: 0 0 24px #ff8c28, 0 2px 8px #ff8c28cc;
+}
+.header__nav {
+  display: flex;
+  gap: 1.5rem;
+}
+.header__btn {
+  background: #b39ddb;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1.1rem;
+  border-radius: 1.1rem;
+  text-decoration: none;
+  font-size: 0.98rem;
+  font-family: 'Segoe UI', 'Arial Black', Arial, sans-serif;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(149,117,205,0.10);
+  transition: background 0.18s, color 0.18s, transform 0.18s, box-shadow 0.15s;
+  margin-left: 0.3rem;
+  outline: none;
+  position: relative;
+  overflow: hidden;
+}
+.header__btn:hover, .header__btn:focus {
+  background: #9575cd;
+  color: #ff8c28;
+  transform: scale(1.07);
+  box-shadow: 0 4px 12px 0 rgba(149,117,205,0.18);
+  letter-spacing: 1px;
+}
+
+.index-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+}
+.animated-title {
+  font-size: 3.5rem;
+  font-family: 'Share Tech Mono', monospace;
+  font-weight: bold;
+  background: linear-gradient(90deg, #b39ddb, #50dc78, #6c4fa1);
+  background-size: 200% auto;
+  color: #fff;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: 2px;
+  margin-top: 3rem;
+  text-align: center;
+  filter: drop-shadow(0 2px 4px #b39ddb22);
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.animated-title span {
+  display: inline-block;
+  animation: wave 2.8s infinite linear;
+  animation-delay: calc(var(--i) * 0.13s);
+}
+@keyframes wave {
+  0%, 100% { transform: translateY(0); }
+  10% { transform: translateY(-0.18em); }
+  20% { transform: translateY(-0.32em); }
+  30% { transform: translateY(-0.18em); }
+  40%, 90% { transform: translateY(0); }
+}
+
+.joke-view {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 70vh;
+}
+.joke-box {
+  background: rgba(255,255,255,0.07);
+  border-radius: 22px;
+  box-shadow: 0 8px 32px rgba(80,220,120,0.18), 0 1.5px 8px #b39ddb22;
+  padding: 2.7rem 2.7rem 2.2rem 2.7rem;
+  max-width: 600px;
+  width: 100%;
+  margin-top: 2.5rem;
+  border: 2.5px solid #50dc7855;
+  transition: box-shadow 0.2s, border 0.2s;
+}
+.joke-box:hover {
+  box-shadow: 0 12px 48px rgba(80,220,120,0.28), 0 2px 16px #b39ddb44;
+  border: 2.5px solid #b39ddb;
+}
+.joke-setup {
+  font-size: 2.1rem;
+  font-weight: 700;
+  margin-bottom: 1.3rem;
+  color: #b39ddb;
+  text-align: left;
+  text-shadow: 0 1px 2px #141a16cc;
+}
+.joke-separator {
+  border: none;
+  border-top: 2px dashed #50dc78;
+  margin: 1.3rem 0;
+}
+.joke-punchline {
+  font-size: 1.4rem;
+  color: #fff;
+  font-style: italic;
+  text-align: center;
+  margin: 1.5rem 0 0.5rem 0;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+  text-shadow: 0 1px 2px #141a16cc;
+}
+.rating {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 1.5rem 0 0.5rem 0;
+}
+.rating-star {
+  font-size: 2.1rem;
+  color: #b39ddb;
+  cursor: pointer;
+  transition: color 0.18s, transform 0.12s;
+}
+.rating-star.selected,
+.rating-star:hover,
+.rating-star.selected ~ .rating-star {
+  color: #2e5d3a;
+  text-shadow: 0 0 2px #b2f7cc33;
+  transform: scale(1.12) rotate(-4deg);
+}
+.rating-star:hover ~ .rating-star {
+  color: #b39ddb;
+  text-shadow: none;
+  transform: scale(1) rotate(0);
+}
+.rating-submit {
+  margin-left: 1.5rem;
+  background: #6c4fa1;
+  color: #fff;
+  border: none;
+  border-radius: 1.2rem;
+  padding: 0.5rem 1.3rem;
+  font-size: 1rem;
+  font-family: 'Share Tech Mono', monospace;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, transform 0.12s;
+}
+.rating-submit:hover {
+  background: #b39ddb;
+  color: #2e5d3a;
+  transform: scale(1.05);
+}
+body, .index-main, .faq-main, .top-jokes-list, .rating-submit {
+  font-size: 0.98rem;
+}

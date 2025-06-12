@@ -1,0 +1,51 @@
+<%- include('partials/header') %>
+
+
+<main class="joke-view">
+  <div class="joke-box">
+    <div class="joke-setup"><%= joke.setup %></div>
+    <hr class="joke-separator" />
+    <div class="joke-punchline"><%= joke.punchline %></div>
+    <form class="rating" id="ratingForm" method="POST" action="/vits/rate">
+      <input type="hidden" name="jokeId" value="<%= joke._id || '' %>">
+      <span class="rating-star" data-value="1">&#9734;</span>
+      <span class="rating-star" data-value="2">&#9734;</span>
+      <span class="rating-star" data-value="3">&#9734;</span>
+      <span class="rating-star" data-value="4">&#9734;</span>
+      <span class="rating-star" data-value="5">&#9734;</span>
+      <button type="submit" class="rating-submit">Vurder</button>
+    </form>
+  </div>
+</main>
+<script>
+  const stars = document.querySelectorAll('.rating-star');
+  let selected = 0;
+  const ratingInput = document.querySelector('input[name="rating"]') || (() => {
+    const input = document.createElement('input');
+    input.type = 'hidden';
+    input.name = 'rating';
+    input.value = selected;
+    document.getElementById('ratingForm').appendChild(input);
+    return input;
+  })();
+
+  function updateStars() {
+    stars.forEach((star, i) => {
+      star.classList.toggle('selected', i < selected);
+    });
+  }
+
+  stars.forEach((star, idx) => {
+    star.addEventListener('mouseover', () => {
+      stars.forEach((s, i) => {
+        s.classList.toggle('selected', i <= idx);
+      });
+    });
+    star.addEventListener('mouseout', updateStars);
+    star.addEventListener('click', () => {
+      selected = idx + 1;
+      ratingInput.value = selected;
+      updateStars();
+    });
+  });
+</script>
