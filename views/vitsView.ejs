@@ -1,11 +1,18 @@
 <%- include('partials/header') %>
-
-
 <main class="joke-view">
   <div class="joke-box">
     <div class="joke-setup"><%= joke.setup %></div>
     <hr class="joke-separator" />
     <div class="joke-punchline"><%= joke.punchline %></div>
+    <% if (typeof justRated !== 'undefined' && justRated && typeof avgRating !== 'undefined' && avgRating !== null) { %>
+      <div class="rating-feedback" style="background:none; color:#ff9800; font-size:1.1rem; font-weight:600; text-align:center; box-shadow:none; display:inline-block; padding:0; margin:1.2rem auto 0.5rem auto;">
+        Gjennomsnittsrating for denne vitsen: <span class="avg-rating"><%= avgRating.toFixed(2) %></span> / 5
+      </div>
+      <form method="GET" action="/vits" style="text-align:center; margin-top:1.2rem;">
+        <button type="submit" class="next-joke-btn">Ny vits</button>
+      </form>
+    <% } %>
+    <% if (typeof justRated === 'undefined' || !justRated) { %>
     <form class="rating" id="ratingForm" method="POST" action="/vits/rate">
       <input type="hidden" name="jokeId" value="<%= joke._id || '' %>">
       <span class="rating-star" data-value="1">&#9734;</span>
@@ -15,9 +22,14 @@
       <span class="rating-star" data-value="5">&#9734;</span>
       <button type="submit" class="rating-submit">Vurder</button>
     </form>
+    <% } %>
   </div>
 </main>
 <script>
+  // Dette scriptet håndterer stjerneratingen:
+  // - Når du holder over en stjerne, markeres denne og alle til venstre.
+  // - Når du klikker, lagres valgt rating og kun valgte stjerner lyser.
+  // - Når du flytter musen bort, vises kun valgt rating.
   const stars = document.querySelectorAll('.rating-star');
   let selected = 0;
   const ratingInput = document.querySelector('input[name="rating"]') || (() => {
@@ -28,13 +40,11 @@
     document.getElementById('ratingForm').appendChild(input);
     return input;
   })();
-
   function updateStars() {
     stars.forEach((star, i) => {
       star.classList.toggle('selected', i < selected);
     });
   }
-
   stars.forEach((star, idx) => {
     star.addEventListener('mouseover', () => {
       stars.forEach((s, i) => {
@@ -48,4 +58,5 @@
       updateStars();
     });
   });
+  updateStars();
 </script>

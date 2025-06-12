@@ -6,9 +6,16 @@
   <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
+  <% if (typeof page !== 'undefined' && page === 'index') { %>
+    <div class="index-bg"></div>
+  <% } %>
   <%- include('partials/header') %>
   <main class="index-main">
-    <h1 class="animated-title">Velkommen til Jokr-Exam!</h1>
+    <h1 class="welcome-animated">
+        <span>V</span><span>e</span><span>l</span><span>k</span><span>o</span><span>m</span><span>m</span><span>e</span><span>n</span><span></span>
+        <span>&nbsp;t</span><span>i</span><span>l</span>
+        <span>&nbsp;J</span><span>o</span><span>k</span><span>r</span><span>E</span><span>x</span><span>a</span><span>m</span>
+    </h1>
   </main>
 </body>
 </html>

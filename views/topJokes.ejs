@@ -5,12 +5,14 @@
   <ol class="top-jokes-list">
     <% jokes.forEach(function(joke, idx) { %>
       <li style="margin-bottom:2.5rem;">
-        <div class="joke-box">
-          <div class="joke-setup"><%= joke.setup %></div>
-          <hr class="joke-separator" />
-          <div class="joke-punchline"><%= joke.punchline %></div>
-          <div class="joke-score">Score: <%= joke.avgRating ? joke.avgRating.toFixed(2) : 'Ingen' %> / 5</div>
-        </div>
+        <a href="/joke/<%= joke._id %>" class="joke-link" style="text-decoration:none; color:inherit;">
+          <div class="joke-box">
+            <div class="joke-setup"><%= joke.setup %></div>
+            <hr class="joke-separator" />
+            <div class="joke-punchline"><%= joke.punchline %></div>
+            <div class="joke-score">Score: <%= joke.avgRating ? joke.avgRating.toFixed(2) : 'Ingen' %> / 5</div>
+          </div>
+        </a>
       </li>
     <% }) %>
   </ol>

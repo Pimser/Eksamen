@@ -1,9 +1,34 @@
 <%- include('partials/header') %>
 <main class="faq-main">
-  <h1>FAQ</h1>
-  <ul>
-    <li><strong>Hva er Jokr-Exam?</strong> En nettside for å vise tilfeldige vitser med punchline.</li>
-    <li><strong>Hvor kommer vitsene fra?</strong> Vitsene hentes fra et offentlig API.</li>
-    <li><strong>Hvordan bytter jeg vits?</strong> Trykk på "Vits" i menyen for å hente en ny vits.</li>
-  </ul>
+  <h1>FAQ & Brukerveiledning</h1>
+  <section class="faq-section">
+    <h2>Hva er Jokr-Exam?</h2>
+    <p>Jokr-Exam er en nettside hvor du kan lese, vurdere og oppdage morsomme vitser. Du kan også se hvilke vitser som er best likt av andre brukere!</p>
+  </section>
+  <section class="faq-section">
+    <h2>Hvordan bruker jeg systemet?</h2>
+    <ol>
+      <li><strong>Se en tilfeldig vits:</strong> Klikk på <b>Vits</b> i menyen for å få opp en tilfeldig vits. Les og vurder den med stjerner (1-5).</li>
+      <li><strong>Vurdere en vits:</strong> Trykk på stjernene for å gi din vurdering, og trykk deretter på <b>Vurder</b>-knappen. Du får se gjennomsnittsratingen etterpå.</li>
+      <li><strong>Se topplisten:</strong> Klikk på <b>Top</b> i menyen for å se de best rangerte vitsene. Trykk på en vits for å vurdere den selv!</li>
+      <li><strong>Gå tilbake til forsiden:</strong> Klikk på <b>Jokr-Exam</b>-logoen øverst for å gå tilbake til startsiden.</li>
+    </ol>
+  </section>
+  <section class="faq-section">
+    <h2>Ofte stilte spørsmål</h2>
+    <ul>
+      <li><b>Hvor kommer vitsene fra?</b> Vitsene hentes fra et offentlig API og lagres i databasen etter hvert som de vises.</li>
+      <li><b>Kan jeg se hvilke vitser jeg har vurdert?</b> Nei, systemet lagrer ikke hvem som har vurdert hva – kun totalscore for hver vits.</li>
+      <li><b>Hvordan bytter jeg vits?</b> Trykk på <b>Vits</b> i menyen for å hente en ny tilfeldig vits, eller bruk <b>Ny vits</b>-knappen etter vurdering.</li>
+      <li><b>Hva betyr stjernene?</b> 1 stjerne = dårlig, 5 stjerner = kjempebra!</li>
+    </ul>
+  </section>
+  <section class="faq-section">
+    <h2>Tips</h2>
+    <ul>
+      <li>Prøv å vurdere flere vitser for å påvirke topplisten!</li>
+      <li>Bruk mørk modus for en behagelig opplevelse.</li>
+      <li>Del gjerne siden med venner for flere vurderinger.</li>
+    </ul>
+  </section>
 </main>

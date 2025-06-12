@@ -8,6 +8,7 @@ router.get('/', jokeController.home);
 router.get('/vits', jokeController.getJoke);
 router.get('/faq', jokeController.faq);
 router.get('/top', jokeController.topJokes);
+router.get('/joke/:id', jokeController.getJokeById);
 
 //POST
 router.post('/vits/rate', jokeController.rateJoke);
